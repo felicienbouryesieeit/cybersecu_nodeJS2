@@ -40,9 +40,9 @@ async function startServer() {
     // Autres routes (GET/:id, DELETE/:id, PUT/:id) à adapter avec ObjectId
     // ...
 
-    app.listen(PORT, () => {
-      console.log(`Serveur démarré sur http://localhost:${PORT}`);
-    });
+    app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Serveur démarré sur le port ${PORT}`);
+});
   } catch (err) {
     console.error('Erreur de connexion MongoDB:', err);
     process.exit(1);
