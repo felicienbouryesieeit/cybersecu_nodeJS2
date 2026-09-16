@@ -9,10 +9,14 @@ const uri = process.env.ATLAS_URI;
 let db;
 let collection;
 
+
 // Connexion à MongoDB avant de démarrer le serveur
 async function startServer() {
   try {
-    const client = new MongoClient(uri, { serverApi: ServerApiVersion.v1 });
+    const client = new MongoClient(uri, {
+  serverApi: ServerApiVersion.v1,
+  autoSelectFamily: false
+});
     await client.connect();
     db = client.db('maBase');
     collection = db.collection('liste');
